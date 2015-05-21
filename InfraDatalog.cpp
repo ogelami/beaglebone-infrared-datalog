@@ -12,7 +12,7 @@ using namespace std;
 int main(int argc, char *argv[])
 {
 	gpio_export(LEDGPIO);
-	gpio_set_dir(ButtonGPIO, INPUT_PIN);
+	gpio_set_dir(LEDGPIO, INPUT_PIN);
 	
 	return 0;
 }
