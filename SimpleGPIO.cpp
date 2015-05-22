@@ -172,7 +172,7 @@ int gpio_wait_value(unsigned int gpio)
 {
 	int watchDescriptor = 0;
 	char buf[MAX_BUF];
-	char inotifyBuffer[INOTIFY_BUF_MAX];3
+	char inotifyBuffer[INOTIFY_BUF_MAX];
 	struct inotify_event *event;
 	
 	snprintf(buf, sizeof(buf), SYSFS_GPIO_DIR "/gpio%d/value", gpio);
