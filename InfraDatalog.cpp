@@ -18,6 +18,8 @@ int main(int argc, char *argv[])
 	
 	unsigned int state = 0;
 	
+	gpio_set_value(LEDGPIO, HIGH);
+	
 	gpio_get_value(LEDGPIO, &state);
 
 	printf("%d", state);
