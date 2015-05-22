@@ -172,8 +172,8 @@ int gpio_wait_value(unsigned int gpio)
 {
 	int watchDescriptor = 0;
 	char buf[MAX_BUF];
-	char inotifyBuffer[sizeof(struct inotify_event) + 16];
-	struct inotify_event *event;
+//	char inotifyBuffer[sizeof(struct inotify_event) + 16];
+	struct inotify_event event;
 	
 	snprintf(buf, sizeof(buf), SYSFS_GPIO_DIR "/gpio%d/value", gpio);
 	
@@ -189,17 +189,17 @@ int gpio_wait_value(unsigned int gpio)
 	
 	while(true)
 	{
-		printf("%d", sizeof(struct inotify_event));
-//		if(read(fileDescriptor, inotifyBuffer, sizeof(struct inotify_event)) < 0)
-//			return -1;
+//		printf("%d", sizeof(struct inotify_event));
+		if(read(fileDescriptor, (char*)&event, sizeof(struct inotify_event)) < 0)
+			return -1;
 		
 		return -1;
-		
+		/*
 		event = (struct inotify_event *) &inotifyBuffer;
 		
 		printf("%d\n", event->len);
 		
-		usleep(200000);
+		usleep(200000);*/
 		
 //		if(event->len)
 	}
