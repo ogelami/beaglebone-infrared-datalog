@@ -16,7 +16,7 @@ int main(int argc, char *argv[])
 //	gpio_set_dir(LEDGPIO, INPUT_PIN);
 	gpio_set_dir(LEDGPIO, OUTPUT_PIN);
 	
-	int state = 0;
+	unsigned int state = 0;
 	
 	gpio_get_value(LEDGPIO, &state);
 
