@@ -19,8 +19,8 @@ void prettyOutput(unsigned short state, struct timeval timestamp)
 int main(int argc, char *argv[])
 {
 	gpio_export(LEDGPIO);
-//	gpio_set_dir(LEDGPIO, INPUT_PIN);
-	gpio_set_dir(LEDGPIO, OUTPUT_PIN);
+	gpio_set_dir(LEDGPIO, INPUT_PIN);
+//	gpio_set_dir(LEDGPIO, OUTPUT_PIN);
 	
 	unsigned int previousState = 0;
 	unsigned int newState = 0;
