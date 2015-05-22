@@ -12,7 +12,7 @@ using namespace std;
 
 void prettyOutput(unsigned short state, struct timeval timestamp)
 {
-	printf("%d %l %l\n", state, timestamp.tv_sec, timestamp.tv_usec);
+	printf("%d %d %d\n", state, timestamp.tv_sec, timestamp.tv_usec);
 	fflush(stdout);
 }
 
