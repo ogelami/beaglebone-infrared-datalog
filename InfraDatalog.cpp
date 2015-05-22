@@ -10,9 +10,9 @@ using namespace std;
 // P9_12 = GPIO1_28 = (1x32) + 28 = 60
 #define LEDGPIO 60
 
-void prettyOutput(unsigned short state, struct timeval* timestamp)
+void prettyOutput(unsigned short state, struct timeval timestamp)
 {
-	printf("%d %l %l\n", state, timestamp[0]->tv_sec, timestamp[0]->tv_usec);
+	printf("%d %l %l\n", state, timestamp.tv_sec, timestamp.tv_usec);
 	fflush(stdout);
 }
 
