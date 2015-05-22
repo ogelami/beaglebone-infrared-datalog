@@ -20,10 +20,10 @@ int main(int argc, char *argv[])
 	
 	timespec timeSpec;
 
-	gpio_get_value(LEDGPIO, &previousState);	
+	gpio_get_value(LEDGPIO, &previousState);
 //	clock_gettime(NULL, &timeSpec);
 	struct timeval start_time; 
-    gettimeofday( &start_time, NULL ); 
+    gettimeofday(&start_time, 0); 
 	
 //	printf("Started %ds %dns %s.\n", timeSpec->tv_sec, timeSpec->tv_nsec, previousState ? "HIGH" : "LOW");
 //	fflush(stdout);
