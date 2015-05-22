@@ -1,5 +1,6 @@
 #include <sys/time.h>
 #include <stdio.h>
+#include <stdlib.h>
 #include "SimpleGPIO.h"
 
 using namespace std;
@@ -13,11 +14,13 @@ using namespace std;
 void prettyOutput(unsigned short state, struct timeval timestamp)
 {
 	printf("%d %d %d\n", state, timestamp.tv_sec, timestamp.tv_usec);
-	fflush(stdout);
+//	fflush(stdout);
 }
 
 int main(int argc, char *argv[])
 {
+	int cycles = argc > 1 ? atoi(argv[1]) : 10;
+	
 	gpio_export(LEDGPIO);
 	gpio_set_dir(LEDGPIO, INPUT_PIN);
 //	gpio_set_dir(LEDGPIO, OUTPUT_PIN);
@@ -36,7 +39,8 @@ int main(int argc, char *argv[])
 //	prettyOutput(previousState, timestamp);
 	
 //	for(int i = 0; i < 3; i++)
-	for(;;)
+//	for(;;)
+	for(int i = 0; i < cycles; i++)
 	{
 		do
 		{
