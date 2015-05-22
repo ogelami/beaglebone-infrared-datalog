@@ -185,7 +185,7 @@ int gpio_wait_value(unsigned int gpio)
 	if ( fileDescriptor < 0 )
 		return -1;
 	
-	watchDescriptor = inotify_add_watch(fileDescriptor, buf, IN_MODIFY);
+	watchDescriptor = inotify_add_watch(fileDescriptor, buf, IN_ALL_EVENTS);
 	
 	while(true)
 	{
