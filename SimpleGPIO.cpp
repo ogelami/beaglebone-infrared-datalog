@@ -164,6 +164,14 @@ int gpio_get_value(unsigned int gpio, unsigned int *value)
 	return 0;
 }
 
+/****************************************************************
+ * gpio_wait_value
+ ****************************************************************/
+int fileDescriptor = NULL;
+int gpio_wait_value(unsigned int gpio)
+{
+	
+}
 
 /****************************************************************
  * gpio_set_edge
