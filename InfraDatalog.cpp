@@ -16,11 +16,21 @@ int main(int argc, char *argv[])
 //	gpio_set_dir(LEDGPIO, INPUT_PIN);
 	gpio_set_dir(LEDGPIO, OUTPUT_PIN);
 	
-	unsigned int state = 0;
+	unsigned int previousState = 0;
+	unsigned int newState = 0;
 	
-	gpio_set_value(LEDGPIO, HIGH);
-	
-	gpio_get_value(LEDGPIO, &state);
+	for(int i = 0; i < 3; i++)
+	{
+		gpio_get_value(LEDGPIO, &previousState);
+		
+		printf("%s", previousState ? "HIGH" : "LOW");
+		
+		do
+		{
+			gpio_get_value(LEDGPIO, &newState);
+		}
+		while (previousState == newState);
+	}
 
 	printf("%d", state);
 	
