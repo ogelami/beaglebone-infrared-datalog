@@ -167,13 +167,13 @@ int gpio_get_value(unsigned int gpio, unsigned int *value)
 /****************************************************************
  * gpio_wait_value
  ****************************************************************/
-int fileDescriptor = NULL;
+int fileDescriptor = 0;
 int gpio_wait_value(unsigned int gpio)
 {
 	if(fileDescriptor < 0)
 		fileDescriptor = inotify_init();
 	
-	if ( fd < 0 )
+	if ( fileDescriptor < 0 )
 		return -1;
 	
 	return 0;
