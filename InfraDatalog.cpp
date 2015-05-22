@@ -24,7 +24,7 @@ int main(int argc, char *argv[])
 		gpio_get_value(LEDGPIO, &previousState);
 		
 		printf("%s", previousState ? "HIGH" : "LOW");
-		fflush(stdout)
+		fflush(stdout);
 		
 		do
 		{
