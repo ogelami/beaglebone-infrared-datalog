@@ -13,8 +13,16 @@ using namespace std;
 int main(int argc, char *argv[])
 {
 	gpio_export(LEDGPIO);
-	gpio_set_dir(LEDGPIO, INPUT_PIN);
-	gpio_wait_value(LEDGPIO);
+//	gpio_set_dir(LEDGPIO, INPUT_PIN);
+	gpio_set_dir(LEDGPIO, OUTPUT_PIN);
 	
+	int state = 0;
+	
+	gpio_get_value(LEDGPIO, &state)
+
+	printf("%d", state);
+	
+	gpio_unexport(LEDGPIO);
+
 	return 0;
 }
