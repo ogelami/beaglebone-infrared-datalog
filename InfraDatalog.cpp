@@ -33,7 +33,7 @@ int main(int argc, char *argv[])
 //	printf("Started %ds %dns %s.\n", timestamp.tv_sec, timestamp.tv_usec, previousState ? "HIGH" : "LOW");
 //	fflush(stdout);
 
-	prettyOutput(previousState, &timestamp);
+	prettyOutput(previousState, timestamp);
 	
 	for(int i = 0; i < 3; i++)
 	{
