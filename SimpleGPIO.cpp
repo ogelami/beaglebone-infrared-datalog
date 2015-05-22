@@ -192,8 +192,9 @@ int gpio_wait_value(unsigned int gpio)
 		
 		event = (struct inotify_event *) &inotifyBuffer;
 		
-		if(event->len)
-			printf("disco");
+		printf("%d\n", event->len);
+		
+//		if(event->len)
 	}
 	
 	return 0;
