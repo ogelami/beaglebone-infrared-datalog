@@ -12,7 +12,7 @@ using namespace std;
 
 void prettyOutput(unsigned short state, struct timeval* timestamp)
 {
-	printf("%d %l %l\n", state, timestamp->tv_sec, timestamp->tv_usec);
+	printf("%d %l %l\n", state, timestamp[0].tv_sec, timestamp[0].tv_usec);
 	fflush(stdout);
 }
 
@@ -33,7 +33,7 @@ int main(int argc, char *argv[])
 //	printf("Started %ds %dns %s.\n", timestamp.tv_sec, timestamp.tv_usec, previousState ? "HIGH" : "LOW");
 //	fflush(stdout);
 
-	prettyOutput(previousState, (struct timeval*)&timestamp);
+	prettyOutput(previousState, &timestamp);
 	
 	for(int i = 0; i < 3; i++)
 	{
