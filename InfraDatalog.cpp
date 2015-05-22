@@ -18,15 +18,13 @@ int main(int argc, char *argv[])
 	unsigned int previousState = 0;
 	unsigned int newState = 0;
 	
-	timespec timeSpec;
+	struct timeval timestamp;
 
 	gpio_get_value(LEDGPIO, &previousState);
-//	clock_gettime(NULL, &timeSpec);
-	struct timeval start_time; 
-    gettimeofday(&start_time, 0); 
+    gettimeofday(&timestamp, 0);
 	
-//	printf("Started %ds %dns %s.\n", timeSpec->tv_sec, timeSpec->tv_nsec, previousState ? "HIGH" : "LOW");
-//	fflush(stdout);
+	printf("Started %ds %dns %s.\n", timestamp->tv_sec, timestamp->tv_usec, previousState ? "HIGH" : "LOW");
+	fflush(stdout);
 	
 	for(int i = 0; i < 3; i++)
 	{
@@ -37,7 +35,8 @@ int main(int argc, char *argv[])
 		while (previousState == newState);
 		
 //		clock_gettime(CLOCK_REALTIME, &timeSpec);
-//		printf("Switched to %s %ds %dns\n", newState ? "HIGH" : "LOW", timeSpec->tv_sec, timeSpec->tv_nsec);
+		gettimeofday(&timestamp, 0);
+		printf("Switched to %s %ds %dns\n", newState ? "HIGH" : "LOW", timestamp->tv_sec, timestamp->tv_usec);
 		
 		previousState = newState;
 	}
