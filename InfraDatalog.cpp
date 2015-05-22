@@ -31,8 +31,6 @@ int main(int argc, char *argv[])
 		}
 		while (previousState == newState);
 	}
-
-	printf("%d", state);
 	
 	gpio_unexport(LEDGPIO);
 
