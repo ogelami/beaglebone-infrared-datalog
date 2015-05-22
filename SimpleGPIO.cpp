@@ -183,7 +183,7 @@ int gpio_wait_value(unsigned int gpio)
 		fileDescriptor = open(filename, O_RDONLY | O_NONBLOCK);
 //		fileDescriptor = inotify_init();
 	
-	printf("[%d]", fileDescriptor);
+	printf("[%d]", &fileDescriptor);
 	fclose(fileDescriptor);
 	return -1;
 	
