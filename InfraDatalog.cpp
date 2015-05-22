@@ -13,9 +13,9 @@ using namespace std;
 int main(int argc, char *argv[])
 {
 	printf("asd");
-/*	gpio_export(LEDGPIO);
+	gpio_export(LEDGPIO);
 	gpio_set_dir(LEDGPIO, INPUT_PIN);
-	gpio_wait_value(LEDGPIO);*/
+//	gpio_wait_value(LEDGPIO);
 	
 	return 0;
 }
