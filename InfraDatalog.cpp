@@ -35,7 +35,8 @@ int main(int argc, char *argv[])
 
 	prettyOutput(previousState, timestamp);
 	
-	for(int i = 0; i < 3; i++)
+//	for(int i = 0; i < 3; i++)
+	for(;;)
 	{
 		do
 		{
