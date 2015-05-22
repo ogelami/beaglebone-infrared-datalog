@@ -28,12 +28,12 @@ int main(int argc, char *argv[])
 	struct timeval timestamp;
 
 	gpio_get_value(LEDGPIO, &previousState);
-    gettimeofday(&timestamp, 0);
+//    gettimeofday(&timestamp, 0);
 	
 //	printf("Started %ds %dns %s.\n", timestamp.tv_sec, timestamp.tv_usec, previousState ? "HIGH" : "LOW");
 //	fflush(stdout);
 
-	prettyOutput(previousState, timestamp);
+//	prettyOutput(previousState, timestamp);
 	
 //	for(int i = 0; i < 3; i++)
 	for(;;)
