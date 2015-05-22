@@ -23,7 +23,7 @@ int main(int argc, char *argv[])
 	gpio_get_value(LEDGPIO, &previousState);
     gettimeofday(&timestamp, 0);
 	
-	printf("Started %ds %dns %s.\n", timestamp->tv_sec, timestamp->tv_usec, previousState ? "HIGH" : "LOW");
+	printf("Started %ds %dns %s.\n", timestamp.tv_sec, timestamp.tv_usec, previousState ? "HIGH" : "LOW");
 	fflush(stdout);
 	
 	for(int i = 0; i < 3; i++)
@@ -36,7 +36,7 @@ int main(int argc, char *argv[])
 		
 //		clock_gettime(CLOCK_REALTIME, &timeSpec);
 		gettimeofday(&timestamp, 0);
-		printf("Switched to %s %ds %dns\n", newState ? "HIGH" : "LOW", timestamp->tv_sec, timestamp->tv_usec);
+		printf("Switched to %s %ds %dns\n", newState ? "HIGH" : "LOW", timestamp.tv_sec, timestamp.tv_usec);
 		
 		previousState = newState;
 	}
