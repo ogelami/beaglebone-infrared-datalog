@@ -186,18 +186,18 @@ int gpio_wait_value(unsigned int gpio)
 		return -1;
 	
 	watchDescriptor = inotify_add_watch(fileDescriptor, buf, IN_MODIFY);
-	return -1;
 	
 	while(true)
 	{
 		if(read(fileDescriptor, inotifyBuffer, INOTIFY_BUF_MAX) < 0)
 			return -1;
 		
+		return -1;
+		
 		event = (struct inotify_event *) &inotifyBuffer;
 		
 		printf("%d\n", event->len);
 		
-		break;
 		usleep(200000);
 		
 //		if(event->len)
