@@ -21,7 +21,7 @@ int main(int argc, char *argv[])
 	timespec timeSpec;
 
 	gpio_get_value(LEDGPIO, &previousState);	
-	clock_gettime(CLOCK_REALTIME, &timeSpec);
+	clock_gettime(NULL, &timeSpec);
 	
 	printf("Started %ds %dns %s.\n", timeSpec->tv_sec, timeSpec->tv_nsec, previousState ? "HIGH" : "LOW");
 	fflush(stdout);
