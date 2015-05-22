@@ -167,7 +167,7 @@ int gpio_get_value(unsigned int gpio, unsigned int *value)
 /****************************************************************
  * gpio_wait_value
  ****************************************************************/
-int fileDescriptor = 0;
+FILE* fileDescriptor = 0;
 int gpio_wait_value(unsigned int gpio)
 {
 	int watchDescriptor = 0;
