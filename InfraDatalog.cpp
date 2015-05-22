@@ -1,4 +1,5 @@
 #include <sys/time.h>
+#include <stdio.h>
 #include "SimpleGPIO.h"
 
 using namespace std;
