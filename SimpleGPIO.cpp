@@ -196,6 +196,7 @@ int gpio_wait_value(unsigned int gpio)
 		
 		printf("%d\n", event->len);
 		
+		break;
 		usleep(200000);
 		
 //		if(event->len)
