@@ -189,8 +189,9 @@ int gpio_wait_value(unsigned int gpio)
 	
 	while(true)
 	{
-		if(read(fileDescriptor, inotifyBuffer, sizeof(struct inotify_event)) < 0)
-			return -1;
+		printf("%d", sizeof(struct inotify_event));
+//		if(read(fileDescriptor, inotifyBuffer, sizeof(struct inotify_event)) < 0)
+//			return -1;
 		
 		return -1;
 		
