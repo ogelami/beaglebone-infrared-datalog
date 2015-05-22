@@ -177,7 +177,7 @@ int gpio_wait_value(unsigned int gpio)
 	
 	snprintf(buf, sizeof(buf), SYSFS_GPIO_DIR "/gpio%d/value", gpio);
 	
-	printf("%s", buf)
+	printf("%s", buf);
 	
 	if(fileDescriptor < 0)
 		fileDescriptor = inotify_init();
