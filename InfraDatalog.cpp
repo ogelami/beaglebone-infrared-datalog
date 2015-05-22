@@ -10,6 +10,12 @@ using namespace std;
 // P9_12 = GPIO1_28 = (1x32) + 28 = 60
 #define LEDGPIO 60
 
+void prettyOutput(unsigned short state, struct *timeval timestamp)
+{
+	printf("%d %l %l\n", state, timestamp.tv_sec, timestamp.tv_usec);
+	fflush(stdout);
+}
+
 int main(int argc, char *argv[])
 {
 	gpio_export(LEDGPIO);
@@ -24,8 +30,10 @@ int main(int argc, char *argv[])
 	gpio_get_value(LEDGPIO, &previousState);
     gettimeofday(&timestamp, 0);
 	
-	printf("Started %ds %dns %s.\n", timestamp.tv_sec, timestamp.tv_usec, previousState ? "HIGH" : "LOW");
-	fflush(stdout);
+//	printf("Started %ds %dns %s.\n", timestamp.tv_sec, timestamp.tv_usec, previousState ? "HIGH" : "LOW");
+//	fflush(stdout);
+
+	prettyOutput(previousState, &timestamp);
 	
 	for(int i = 0; i < 3; i++)
 	{
@@ -36,8 +44,8 @@ int main(int argc, char *argv[])
 		while (previousState == newState);
 		
 //		clock_gettime(CLOCK_REALTIME, &timeSpec);
-		gettimeofday(&timestamp, 0);
-		printf("Switched to %s %ds %dns\n", newState ? "HIGH" : "LOW", timestamp.tv_sec, timestamp.tv_usec);
+//		gettimeofday(&timestamp, 0);
+//		printf("Switched to %s %ds %dns\n", newState ? "HIGH" : "LOW", timestamp.tv_sec, timestamp.tv_usec);
 		
 		previousState = newState;
 	}
