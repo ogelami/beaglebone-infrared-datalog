@@ -18,7 +18,7 @@ int main(int argc, char *argv[])
 	
 	int state = 0;
 	
-	gpio_get_value(LEDGPIO, &state)
+	gpio_get_value(LEDGPIO, &state);
 
 	printf("%d", state);
 	
