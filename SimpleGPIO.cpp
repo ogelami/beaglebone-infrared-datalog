@@ -42,6 +42,7 @@
 #include <unistd.h>
 #include <fcntl.h>
 #include <poll.h>
+#include <sys/inotify.h>
 
 /****************************************************************
  * gpio_export
