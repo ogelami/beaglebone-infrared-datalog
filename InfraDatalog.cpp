@@ -1,5 +1,4 @@
-#include <stdio.h>
-#include <stdlib.h>
+#include <sys/time.h>
 #include "SimpleGPIO.h"
 
 using namespace std;
@@ -19,18 +18,26 @@ int main(int argc, char *argv[])
 	unsigned int previousState = 0;
 	unsigned int newState = 0;
 	
+	timespec timeSpec;
+
+	gpio_get_value(LEDGPIO, &previousState);	
+	clock_gettime(CLOCK_REALTIME, &timeSpec);
+	
+	printf("Started %ds %dns %s.\n", timeSpec->tv_sec, timeSpec->tv_nsec, previousState ? "HIGH" : "LOW");
+	fflush(stdout);
+	
 	for(int i = 0; i < 3; i++)
 	{
-		gpio_get_value(LEDGPIO, &previousState);
-		
-		printf("%s", previousState ? "HIGH" : "LOW");
-		fflush(stdout);
-		
 		do
 		{
 			gpio_get_value(LEDGPIO, &newState);
 		}
 		while (previousState == newState);
+		
+		clock_gettime(CLOCK_REALTIME, &timeSpec);
+		printf("Switched to %s %ds %dns\n", newState ? "HIGH" : "LOW", timeSpec->tv_sec, timeSpec->tv_nsec);
+		
+		previousState = newState;
 	}
 	
 	gpio_unexport(LEDGPIO);
