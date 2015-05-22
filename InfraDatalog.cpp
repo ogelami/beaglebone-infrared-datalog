@@ -1,4 +1,5 @@
-#include <iostream>
+#include <stdio.h>
+#include <stdlib.h>
 #include "SimpleGPIO.h"
 
 using namespace std;
