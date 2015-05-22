@@ -48,7 +48,7 @@ int main(int argc, char *argv[])
 //		printf("Switched to %s %ds %dns\n", newState ? "HIGH" : "LOW", timestamp.tv_sec, timestamp.tv_usec);
 
 		gettimeofday(&timestamp, 0);
-		prettyOutput(previousState, timestamp);
+		prettyOutput(newState, timestamp);
 		
 		previousState = newState;
 	}
