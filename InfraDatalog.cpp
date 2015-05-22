@@ -13,6 +13,7 @@ int main(int argc, char *argv[])
 {
 	gpio_export(LEDGPIO);
 	gpio_set_dir(LEDGPIO, INPUT_PIN);
+	gpio_wait_value(LEDGPIO);
 	
 	return 0;
 }
