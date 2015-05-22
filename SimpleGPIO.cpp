@@ -171,21 +171,26 @@ int fileDescriptor = 0;
 int gpio_wait_value(unsigned int gpio)
 {
 	int watchDescriptor = 0;
-	char buf[MAX_BUF];
+	char filename[MAX_BUF];
 //	char inotifyBuffer[sizeof(struct inotify_event) + 16];
 	struct inotify_event event;
 	
-	snprintf(buf, sizeof(buf), SYSFS_GPIO_DIR "/gpio%d/value", gpio);
+	snprintf(filename, sizeof(filename), SYSFS_GPIO_DIR "/gpio%d/value", gpio);
 	
-	printf("%s", buf);
+	printf("%s", filename);
 	
 	if(fileDescriptor < 0)
-		fileDescriptor = inotify_init();
+		fileDescriptor = open(filename, O_RDONLY | O_NONBLOCK);
+//		fileDescriptor = inotify_init();
+	
+	printf("[%d]", fileDescriptor);
+	fclose(fileDescriptor);
+	return -1;
 	
 	if ( fileDescriptor < 0 )
 		return -1;
 	
-	watchDescriptor = inotify_add_watch(fileDescriptor, buf, IN_ALL_EVENTS);
+	watchDescriptor = inotify_add_watch(fileDescriptor, filename, IN_MODIFY);
 	
 	while(true)
 	{
