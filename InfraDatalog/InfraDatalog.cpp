@@ -46,7 +46,7 @@ int main(int argc, char *argv[])
 		while (previousState == newState);
 
 		gettimeofday(&timestamp[i], 0);
-		state[i] = newState ? '1' : '0';
+		state[i] = newState ? '0' : '1';
 
 		if(i > 0)
 		{
