@@ -28,7 +28,7 @@ int main(int argc, char *argv[])
 	unsigned int newState = 0;
 	
 	struct timeval *timestamp = (struct timeval*)malloc(cycles * sizeof(timeval));
-	unsigned char *state = new char[cycles];
+	unsigned char *state = new unsigned char[cycles];
 
 	gpio_get_value(LEDGPIO, &previousState);
 	
