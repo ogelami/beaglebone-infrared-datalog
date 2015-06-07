@@ -28,6 +28,7 @@ int main(int argc, char *argv[])
 	unsigned int newState = 0;
 	
 	struct timeval *timestamp = (struct timeval*)malloc(cycles * sizeof(timeval));
+	unsigned char *state = new char[cycles];
 
 	gpio_get_value(LEDGPIO, &previousState);
 	
@@ -40,6 +41,14 @@ int main(int argc, char *argv[])
 		while (previousState == newState);
 
 		gettimeofday(&timestamp[i], 0);
+		state[i] = newState ? '1' : '0';
+
+		if(i < 0)
+		{
+			timestamp[i].tv_sec -= timestamp[0].tv_sec;
+			timestamp[i].tv_usec -= timestamp[0].tv_usec;
+		}
+
 //		prettyOutput(newState, timestamp);
 		
 		previousState = newState;
