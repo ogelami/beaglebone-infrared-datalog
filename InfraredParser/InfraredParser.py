@@ -2,7 +2,7 @@ import sys
 
 def main(argv):
 	if len(argv) < 2:
-		sys.stderr.write("Missing argument [filename]\n")
+		sys.stderr.write("Missing argument [filename ...]\n")
 		return 1
 		
 	parseFile(argv[1])
