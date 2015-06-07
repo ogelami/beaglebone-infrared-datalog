@@ -16,7 +16,7 @@ void prettyOutput(unsigned char* state, timeval *timestamp, int cycles)
 {
 	for(int i = 0; i < cycles; i++)
 	{
-		printf("%d %d %d\n", state[i][0], timestamp[i].tv_sec, timestamp[i].tv_usec);
+		printf("%c %d %d\n", state[i], timestamp[i].tv_sec, timestamp[i].tv_usec);
 	}
 //	printf("%d %d %d\n", state, timestamp.tv_sec, timestamp.tv_usec);
 //	fflush(stdout);
