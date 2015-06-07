@@ -58,6 +58,9 @@ int main(int argc, char *argv[])
 		
 		previousState = newState;
 	}
+	
+	timestamp[0].tv_sec = 0;
+	timestamp[0].tv_usec = 0;
 
 	prettyOutput(state, timestamp, cycles);
 	
